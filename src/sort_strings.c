@@ -17,6 +17,11 @@ int main(int32_t argc, char **argv) {
 	char *algo_sort = argv[3];
 	char *comparator_name = argv[4];
 
+	if (num_lines <= 0) {
+		fprintf(stderr, "Invalid count lines\n");
+		return -1;
+	}
+
 	FileContent content;
 #ifdef USE_MMAP
 	content = read_file_mapped(file_name, num_lines);
