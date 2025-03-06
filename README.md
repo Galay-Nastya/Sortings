@@ -1,4 +1,4 @@
-# Утилита сортировки строк `sort_strings`
+#№ Утилита сортировки строк `sort_strings`
 
 Утилита `sort_strings` читает строки из текстового файла, сортирует их с использованием выбранного алгоритма и выводит результат в стандартный поток вывода.
 
@@ -14,10 +14,10 @@
 - `des` — по убыванию (descending)
 
 ## Сборка и запуск
-mkdir build
-cd build
-cmake ..
-cmake --build
+mkdir build  
+cd build  
+cmake -DUSE_MMAP=OFF/ON ..  
+cmake --build  
 
 ## Запуск тестов
 ctest
