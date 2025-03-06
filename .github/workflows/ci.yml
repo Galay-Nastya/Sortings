@@ -20,13 +20,28 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y cmake
 
       - name: Create build directory
-        run: mkdir build && cd build
+        run: mkdir build
 
-      - name: Configure CMake
-        run: cmake ..
+      - name: Configure CMake with API file reading method
+        run: cmake -DUSE_MMAP=OFF ..
+        working-directory: ./build
 
       - name: Build project
         run: cmake --build .
+        working-directory: ./build
 
       - name: Run tests
         run: ctest --output-on-failure
+        working-directory: ./build
+
+      - name: Configure CMake with MAPPED file reading method
+        run: cmake -DUSE_MMAP=ON ..
+        working-directory: ./build
+
+      - name: Build project
+        run: cmake --build .
+        working-directory: ./build
+
+      - name: Run tests
+        run: ctest --output-on-failure
+        working-directory: ./build
