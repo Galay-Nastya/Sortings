@@ -4,7 +4,7 @@
 #include <string.h>
 
 void test_sort_bubble() {
-	FileContent content = read_file_API("/home/nastya/myHomework/input.txt", 3);
+	FileContent content = read_file_API("../input.txt", 3);
 	sort_bubble(content.lines, content.size, comparator_asc);
 	assert(strcmp(content.lines[0], "Hello\n") == 0);
 	assert(strcmp(content.lines[1], "Hello World!\n") == 0);
